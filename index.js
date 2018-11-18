@@ -93,4 +93,4 @@ if(cmd === '/help') {
             }
   });
 
-bot.login("process.env.B0T_T0KEN");
+bot.login(process.env.B0T_T0KEN);
