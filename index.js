@@ -74,17 +74,6 @@ if(cmd === '/panel') {
     return;
 }
 
-//if(cmd === '/admins') {
-  //  request('http://cabs.5v.pl/bot/admins.php', function (error, res, body) {
-     //   var obj = JSON.parse(body);
-      //  var send = obj.admins.map(e=>'\n**' + e.name + '** na ' + e.rank) + '.';
-     //   var count = obj.admins.length;
-     //   message.delete().catch();
-     //   message.channel.send('Administracja online (' + count + '):' + send);
-    //});
-  //  return;
-//}
-
 if(cmd === '/help') {
             let botmessage = args.join(" ");
             message.delete().catch();
