@@ -7,6 +7,8 @@ const spam_channel = '469153165967884299';
 const info_channel = '469153199819849743';
 const cmd_channel = '473938199153213461';
 const count_channel = '526357805159022602';
+const count_bots_channel = '526364100670914570';
+const count_online_channel = '526358129106092033';
 const prefix = '/';
 
   bot.on('ready', async () => {
@@ -27,6 +29,14 @@ const prefix = '/';
     let count = guild.channels.get(count_channel);
     if(count)
         count.edit({ name: `Taksówkarzy: ${guild.memberCount}` });
+
+    let count2 = guild.channels.get(count_online_channel);
+    if(count2)
+    {
+        var onlineCount = guild.members.filter(m => m.presence.status === 'online' || m.presence.status === 'idle' || m.presence.status === 'dnd').size
+        count2.edit({ name: `Online teraz: ${onlineCount}` });
+    }
+
     }
     });
 
@@ -40,6 +50,14 @@ bot.on('guildMemberRemove', member => {
     let count = guild.channels.get(count_channel);
     if(count)
         count.edit({ name: `Taksówkarzy: ${guild.memberCount}` });
+
+    let count2 = guild.channels.get(count_online_channel);
+    if(count2)
+    {
+        var onlineCount = guild.members.filter(m => m.presence.status === 'online' || m.presence.status === 'idle' || m.presence.status === 'dnd').size
+        count2.edit({ name: `Online teraz: ${onlineCount}` });
+    }
+    
     }
 });
 
