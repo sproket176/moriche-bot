@@ -23,6 +23,10 @@ const prefix = '/';
         if(channel)
     channel.send(`Nowy kierowca, ${member}.`);
     member.send(`Siema ${member}. Przed rozpoczęciem rozgrywki jako taksówkarz zapoznaj się z kanałem **#faq**. Ustaw nickname (komenda /nick na dowolnym kanale) według wzoru **nick IC || nick OOC** oraz dodaj swój numer konta bankowego na kanał #konta_bankowe jeśli chcesz w przyszłości otrzymywać premie. Dla własnej wygody możesz zainstalować modyfikacje z kanału **#nasze_modyfikacje**. Do zobaczenia w grze!`);
+
+    let count = guild.channels.get(count_channel);
+    if(count)
+        count.edit({ name: 'Taksówkarzy: ${guild.memberCount}' });
     }
     });
 
@@ -33,9 +37,9 @@ bot.on('guildMemberRemove', member => {
         if(channel)
             channel.send(member.displayName + " został wyrzucony z firmy.");
 
-        let count = guild.channels.get(count_channel);
-        if(count)
-            count.edit({ name: 'Wszystkich na konferencji:' });
+    let count = guild.channels.get(count_channel);
+    if(count)
+        count.edit({ name: 'Taksówkarzy: ${guild.memberCount}' });
     }
 });
 
