@@ -37,7 +37,7 @@ function checkBots(guild) {
     let count_all = guild.channels.get(count_channel);
     let count_bots = guild.channels.get(count_bots_channel);
     if(count_all)
-        count_all.edit({ name: `Taksówkarzy: ${guild.memberCount}` });
+        count_all.edit({ name: `Członków: ${guild.memberCount}` });
     if(count_bots)
         count_bots.edit({ name: 'w tym botów: ' + checkBots(guild) });
     }
@@ -53,7 +53,7 @@ bot.on('guildMemberRemove', member => {
     let count_all = guild.channels.get(count_channel);
     let count_bots = guild.channels.get(count_bots_channel);
     if(count_all)
-        count_all.edit({ name: `Taksówkarzy: ${guild.memberCount}` });
+        count_all.edit({ name: `Członków: ${guild.memberCount}` });
     if(count_bots)
         count_bots.edit({ name: 'w tym botów: ' + checkBots(guild) });
     }
