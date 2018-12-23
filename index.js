@@ -39,7 +39,7 @@ function checkBots(guild) {
     if(count_all)
         count_all.edit({ name: `Taksówkarzy: ${guild.memberCount}` });
     if(count_bots)
-        count_all.edit({ name: 'w tym botów: ' + checkBots(guild) });
+        count_bots.edit({ name: 'w tym botów: ' + checkBots(guild) });
     }
     });
 
@@ -55,7 +55,7 @@ bot.on('guildMemberRemove', member => {
     if(count_all)
         count_all.edit({ name: `Taksówkarzy: ${guild.memberCount}` });
     if(count_bots)
-        count_all.edit({ name: 'w tym botów: ' + checkBots(guild) });
+        count_bots.edit({ name: 'w tym botów: ' + checkBots(guild) });
     }
 });
 
