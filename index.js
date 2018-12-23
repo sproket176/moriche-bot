@@ -19,19 +19,9 @@ function checkBots(guild) {
     return botCount;
 }
 
-function intervalFunc() {
-	let count2 = guild.channels.get(count_online_channel);
-	if(count2)
-	{
-	    var onlineCount = guild.members.filter(m => m.presence.status === 'online' || m.presence.status === 'idle' || m.presence.status === 'dnd').size
-	    count2.edit({ name: `Online teraz: ${onlineCount}` });
-	}
-}
-
   bot.on('ready', async () => {
     console.log(`Logged in as ${bot.user.tag}!`);
     bot.user.setActivity('wpisz: /help', { type: 'PLAYING' });
-    setInterval(intervalFunc, 1000);
 });
 
   bot.on('guildMemberAdd', member => {
