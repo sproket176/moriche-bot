@@ -22,6 +22,15 @@ function checkBots(guild) {
   bot.on('ready', async () => {
     console.log(`Logged in as ${bot.user.tag}!`);
     bot.user.setActivity('wpisz: /help', { type: 'PLAYING' });
+	let online = guild.channels.get(count_online_channel);
+    setInterval(() => {
+	if(online)
+	{
+	    var onlineCount = guild.members.filter(m => m.presence.status === 'online' || m.presence.status === 'idle' || m.presence.status === 'dnd').size
+	    online.edit({ name: `Online: ${onlineCount}` });
+	}
+    }, 10000);
+
 });
 
   bot.on('guildMemberAdd', member => {
