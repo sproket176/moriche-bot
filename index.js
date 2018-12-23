@@ -11,6 +11,14 @@ const count_bots_channel = '526364100670914570';
 const count_online_channel = '526358129106092033';
 const prefix = '/';
 
+function checkBots(guild) {
+    let botCount = 0;
+    guild.members.forEach(member => {
+      if(member.user.bot) botCount++;
+    });
+    return botCount;
+}
+
   bot.on('ready', async () => {
     console.log(`Logged in as ${bot.user.tag}!`);
     bot.user.setActivity('wpisz: /help', { type: 'PLAYING' });
@@ -23,12 +31,15 @@ const prefix = '/';
     if(guild) {
         let channel = guild.channels.get(info_channel);
         if(channel)
-    channel.send(`Nowy kierowca, ${member}.`);
+    channel.send(`Nowy taksówkarz, ${member}.`);
     member.send(`Siema ${member}. Przed rozpoczęciem rozgrywki jako taksówkarz zapoznaj się z kanałem **#faq**. Ustaw nickname (komenda /nick na dowolnym kanale) według wzoru **nick IC || nick OOC** oraz dodaj swój numer konta bankowego na kanał #konta_bankowe jeśli chcesz w przyszłości otrzymywać premie. Dla własnej wygody możesz zainstalować modyfikacje z kanału **#nasze_modyfikacje**. Do zobaczenia w grze!`);
 
-    let count = guild.channels.get(count_channel);
-    if(count)
-        count.edit({ name: `Taksówkarzy: ${guild.memberCount}` });
+    let count_all = guild.channels.get(count_channel);
+    let count_bots = guild.channels.get(count_bots_channel);
+    if(count_all)
+        count_all.edit({ name: `Taksówkarzy: ${guild.memberCount}` });
+    if(count_bots)
+        count_all.edit({ name: 'w tym botów: ' + checkBots(guild) });
     }
     });
 
@@ -39,9 +50,12 @@ bot.on('guildMemberRemove', member => {
         if(channel)
             channel.send(member.displayName + " został wyrzucony z firmy.");
 
-    let count = guild.channels.get(count_channel);
-    if(count)
-        count.edit({ name: `Taksówkarzy: ${guild.memberCount}` });
+    let count_all = guild.channels.get(count_channel);
+    let count_bots = guild.channels.get(count_bots_channel);
+    if(count_all)
+        count_all.edit({ name: `Taksówkarzy: ${guild.memberCount}` });
+    if(count_bots)
+        count_all.edit({ name: 'w tym botów: ' + checkBots(guild) });
     }
 });
 
