@@ -77,20 +77,9 @@ if(cmd === '/panel') {
 if(cmd === '/help') {
             let botmessage = args.join(" ");
             message.delete().catch();
-            message.channel.send('```Komendy ogólnodostępne:\n/panel\n/admins (w budowie, ostatnie poprawki)```'); 
+            message.channel.send('```Komendy ogólnodostępne:\n/panel\n\nKomendy admina:\n/say [treść]\n/info [treść]```'); 
         return;
         }
-
-    if(cmd === '/cmds') {
-        if (message.channel.id === cmd_channel) {
-            if(message.member.hasPermission("MANAGE_MESSAGES")) {
-                let botmessage = args.join(" ");
-                message.delete().catch();
-                message.channel.send('```/say [treść]\n/info [treść]```'); 
-            }
-            return;
-        }
-            }
   });
 
 bot.login(process.env.B0T_T0KEN);
