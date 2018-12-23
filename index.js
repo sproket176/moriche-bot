@@ -14,6 +14,15 @@ const prefix = '/';
   bot.on('ready', async () => {
     console.log(`Logged in as ${bot.user.tag}!`);
     bot.user.setActivity('wpisz: /help', { type: 'PLAYING' });
+      
+    var interval = setInterval (function () {
+    let count2 = guild.channels.get(count_online_channel);
+    if(count2)
+    {
+        var onlineCount = guild.members.filter(m => m.presence.status === 'online' || m.presence.status === 'idle' || m.presence.status === 'dnd').size
+        count2.edit({ name: `Online teraz: ${onlineCount}` });
+    }
+}, 10000); 
 });
 
   bot.on('guildMemberAdd', member => {
