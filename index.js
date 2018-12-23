@@ -26,7 +26,7 @@ const prefix = '/';
 
     let count = guild.channels.get(count_channel);
     if(count)
-        count.edit({ name: 'Taksówkarzy: ${guild.memberCount}' });
+        count.edit({ name: `Taksówkarzy: ${guild.memberCount}` });
     }
     });
 
@@ -39,7 +39,7 @@ bot.on('guildMemberRemove', member => {
 
     let count = guild.channels.get(count_channel);
     if(count)
-        count.edit({ name: 'Taksówkarzy: ${guild.memberCount}' });
+        count.edit({ name: `Taksówkarzy: ${guild.memberCount}` });
     }
 });
 
