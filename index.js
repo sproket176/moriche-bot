@@ -8,7 +8,7 @@ const info_channel = '469153199819849743';
 const cmd_channel = '473938199153213461';
 const count_channel = '526357805159022602';
 const count_bots_channel = '526364100670914570';
-const count_online_channel = '473938199153213461';
+//const count_online_channel = '473938199153213461';
 const prefix = '/';
 
 function checkBots(guild) {
@@ -22,15 +22,8 @@ function checkBots(guild) {
   bot.on('ready', async () => {
     console.log(`Logged in as ${bot.user.tag}!`);
     bot.user.setActivity('wpisz: /help', { type: 'PLAYING' });
-
-    bot.guilds.forEach((guild) => {
-    let online = guild.channels.get(count_online_channel);
-         setInterval (function () {
-              count_online_channel.send("Message here") //send it to whatever channel the bot has permissions to send on
-         }, 1000);
-   })
-
-});
+   });
+  
   bot.on('guildMemberAdd', member => {
       var role = member.guild.roles.find('name', 'Brak panelu');
     member.addRole(role).catch(console.error);
