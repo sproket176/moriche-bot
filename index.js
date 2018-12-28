@@ -31,15 +31,15 @@ function checkBots(guild) {
     if(guild) {
         let channel = guild.channels.get(info_channel);
         if(channel)
-    channel.send(`Nowy taksówkarz, ${member}.`);
-    member.send(`Siema ${member}. Przed rozpoczêciem rozgrywki jako taksówkarz zapoznaj siê z kana³em **#faq**. Ustaw nickname (komenda /nick na dowolnym kanale) wed³ug wzoru **nick IC || nick OOC** oraz dodaj swój numer konta bankowego na kana³ #konta_bankowe jeœli chcesz w przysz³oœci otrzymywaæ premie. Dla w³asnej wygody mo¿esz zainstalowaæ modyfikacje z kana³u **#nasze_modyfikacje**. Do zobaczenia w grze!`);
+    channel.send(`Nowy taksÃ³wkarz, ${member}.`);
+    member.send(`Siema ${member}. Przed rozpoczÄ™ciem rozgrywki jako taksÃ³wkarz zapoznaj siÄ™ z kanaÅ‚em **#faq**. Ustaw nickname (komenda /nick na dowolnym kanale) wedÅ‚ug wzoru **nick IC || nick OOC** oraz dodaj swÃ³j numer konta bankowego na kanaÅ‚ #konta_bankowe jeÅ›li chcesz w przyszÅ‚oÅ›ci otrzymywaÄ‡ premie. Dla wÅ‚asnej wygody moÅ¼esz zainstalowaÄ‡ modyfikacje z kanaÅ‚u **#nasze_modyfikacje**. Do zobaczenia w grze!`);
 
     let count_all = guild.channels.get(count_channel);
     let count_bots = guild.channels.get(count_bots_channel);
     if(count_all)
-        count_all.edit({ name: `Cz³onków: ${guild.memberCount}` });
+        count_all.edit({ name: `CzÅ‚onkÃ³w: ${guild.memberCount}` });
     if(count_bots)
-        count_bots.edit({ name: 'w tym botów: ' + checkBots(guild) });
+        count_bots.edit({ name: 'w tym botÃ³w: ' + checkBots(guild) });
     }
     });
 
@@ -48,14 +48,14 @@ bot.on('guildMemberRemove', member => {
     if(guild) {
         let channel = guild.channels.get(info_channel);
         if(channel)
-            channel.send(member.displayName + " zosta³ wyrzucony z firmy.");
+            channel.send(member.displayName + " zostaÅ‚ wyrzucony z firmy.");
 
     let count_all = guild.channels.get(count_channel);
     let count_bots = guild.channels.get(count_bots_channel);
     if(count_all)
-        count_all.edit({ name: `Cz³onków: ${guild.memberCount}` });
+        count_all.edit({ name: `CzÅ‚onkÃ³w: ${guild.memberCount}` });
     if(count_bots)
-        count_bots.edit({ name: 'w tym botów: ' + checkBots(guild) });
+        count_bots.edit({ name: 'w tym botÃ³w: ' + checkBots(guild) });
     }
 });
 
@@ -101,7 +101,7 @@ if(cmd === '/panel') {
 if(cmd === '/help') {
             let botmessage = args.join(" ");
             message.delete().catch();
-            message.channel.send('```Komendy ogólnodostêpne:\n/panel\n\nKomendy admina:\n/say [treœæ]\n/info [treœæ]```'); 
+            message.channel.send('```Komendy ogÃ³lnodostÄ™pne:\n/panel\n\nKomendy admina:\n/say [treÅ›Ä‡]\n/info [treÅ›Ä‡]```'); 
         return;
         }
   });
