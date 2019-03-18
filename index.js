@@ -74,11 +74,6 @@ bot.on('message', async message => {
             return;
         }
     }
-
-        if(cmd === 'lodziara' || cmd === 'lily' || cmd === 'shane' || cmd === 'lodzik' || cmd === 'obciaganie') {
-                channel.send("lily shane to lodziara, masz racje");
-            return;
-    }
 });
 
 bot.login(process.env.B0T_T0KEN);
