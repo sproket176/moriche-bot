@@ -75,8 +75,9 @@ bot.on('message', async message => {
         }
     }
 
-    if (message.content === 'lodziara') {
-    message.reply('Lilly_Shane zgłoś się @Helios#2994');
+        if(cmd === 'lodziara' || cmd === 'lily' || cmd === 'shane' || cmd === 'lodzik' || cmd === 'obciaganie') {
+                channel.send("lily shane to lodziara, masz racje");
+            return;
     }
 });
 
