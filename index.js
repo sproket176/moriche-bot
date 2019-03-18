@@ -75,8 +75,8 @@ bot.on('message', async message => {
         }
     }
 
-    if (msg.content === 'lodziara') {
-    msg.reply('Lilly_Shane zgłoś się @Helios#2994');
+    if (message.content === 'lodziara') {
+    message.reply('Lilly_Shane zgłoś się @Helios#2994');
     }
 });
 
