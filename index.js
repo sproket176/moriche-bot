@@ -63,17 +63,21 @@ bot.on('message', async message => {
     let cmd = messageArray[0];
     let args = messageArray.slice(1);
 
-    if(cmd === '/sayt') {
-        if (message.channel.id === cmd_channel) {
-        if(message.member.hasPermission("MANAGE_MESSAGES")) {
-            let botmessage = args.join(" ");
-            message.delete().catch();
-            var channel = bot.channels.get(spam_channel);
-            channel.send(botmessage);   
+        if(cmd === '/sayt') {
+            if (message.channel.id === cmd_channel) {
+            if(message.member.hasPermission("MANAGE_MESSAGES")) {
+                let botmessage = args.join(" ");
+                message.delete().catch();
+                var channel = bot.channels.get(spam_channel);
+                channel.send(botmessage);   
+            }
+            return;
         }
-        return;
     }
-}
+
+    if (msg.content === 'lodziara') {
+    msg.reply('Lilly_Shane zgłoś się @Helios#2994');
+    }
 });
 
 bot.login(process.env.B0T_T0KEN);
